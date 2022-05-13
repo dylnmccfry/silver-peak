@@ -50,3 +50,19 @@ For example it should look like this:
 321.NE,10.10.10.0/24  
 
 The first value is the ID of the silver peak, and the second value is the subnet of the interface you want to update the DHCP helpers on. So in this example it will only change the helpers on the interfaces in the subnet 10.202.101.0/24, 10.202.103.0/24, 10.10.10.0/24. It will loop through each interface until there's a match, if there is no match, the config makes no changes.
+
+
+### dhcp_renew.py ##
+Fill out the FQDN of your orchestrator at the top, save it and then run. It will ask for 3 variables your API key that needs to have read/write access, the ID of the Silver Peak device, and the interface that will be bounced.
+
+```python
+python3 dhcp_renew.py
+API KEY: XXXXXXX
+Device ID: XX.YY
+Interface: wan1
+Shutting down wan1
+200
+Pausing for 5 seconds to allow Orchestrator to execute change...
+Turning up interface wan1
+200
+```
