@@ -66,3 +66,22 @@ Pausing for 5 seconds to allow Orchestrator to execute change...
 Turning up interface wan1
 200
 ```
+
+### deployment.py 
+Fill out the deployment_ips.csv and the vrrp.csv files with your information. Ensure you have the necessary modules installed in Python. The format of the deployment_ips.csv is 
+
+| label  | IP | mask  | vlan | relay | dhcp1 | dhcp2 |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| 5 | 10.10.10.10 | 24 | 33 | n | |
+| 5 | 10.20.30.40 | 24 | 177 | y | 10.9.8.7 | 10.6.5.4 |
+
+The label corresponds to the label of the interface, the IP is the physical IP of the silver peak, mask is in slash notation without the forward slash, vlan is VLAN ID, relay is ‘y’ or ‘n’ and the dhcp1 & dhcp2 are the relay servers if you used ‘y’
+
+The vrrp.csv format is 
+
+| groupID  | vip | interface | 
+| ------------- | ------------- | ------------- | 
+|1 | 10.10.10.1 | lan0.33 |
+| 2 | 10.20.20.1 | lan0.177 |
+
+The valid group IDs are 1 – 255 they should be unique for each subnet, but do not have to correlate with VLAN ID to group ID.
