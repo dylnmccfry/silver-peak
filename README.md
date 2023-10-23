@@ -1,7 +1,7 @@
-# change_dhcp_helpers.py
+### change_dhcp_helpers.py
 This script will delete an old DHCP helper and replace it with a specified new one.
 
-## Usage
+#### Usage
 You will need to fill in variables at the top of the script and fill out the ids.txt file with 1 appliance ID per line:
 
 - *new_dhcp_server* -> The DHCP server you are replacing the old one with.
@@ -24,18 +24,18 @@ python3 change_dhcp_helpers.py
 
 *logged out successfully*
 
-# get_loopback_ips.py
+### get_loopback_ips.py
 
 This script will get loopback interface and output the loopback, hostname, networkid into a csv file.
 
-## Usage
+#### Usage
 You will need to fill in the fqdn variable at the top of the script:
 
 - *orchestrator_fqdn* -> Your orchestrator FQDN.
 
-# replace_all_dhcp_helpers.py
+### replace_all_dhcp_helpers.py
 
-## Usage
+#### Usage
 You will need to fill in the fqdn variable at the top of the script, the ids.txt and the DHCP server list:
 
 - *orchestrator_fqdn* -> Your orchestrator FQDN.
@@ -52,7 +52,7 @@ For example it should look like this:
 The first value is the ID of the silver peak, and the second value is the subnet of the interface you want to update the DHCP helpers on. So in this example it will only change the helpers on the interfaces in the subnet 10.202.101.0/24, 10.202.103.0/24, 10.10.10.0/24. It will loop through each interface until there's a match, if there is no match, the config makes no changes.
 
 
-### dhcp_renew.py ##
+### dhcp_renew.py
 Fill out the FQDN of your orchestrator at the top, save it and then run. It will ask for 3 variables your API key that needs to have read/write access, the ID of the Silver Peak device, and the interface that will be bounced.
 
 ```python
