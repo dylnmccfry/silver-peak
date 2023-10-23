@@ -74,7 +74,7 @@ with open('deployment_ips.csv', 'r') as file:
                     "dhcp": False,
                     "lanSide": True,
                     "wanSide": False,
-                    "label": "5",
+                    "label": label,
                     "harden": 0,
                     "behindNAT": "none",
                     "maxBW": {},
