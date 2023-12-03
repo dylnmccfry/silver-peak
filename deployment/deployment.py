@@ -19,6 +19,9 @@ password = getpass.getpass()
 # Which Appliance to run against
 appliance_id = input('Appliance ID:')
 
+# Which lan interface to add IP config to, some appliances have lan0 and some have tlan0
+lan_interface = input('Enter lan interface in format lan0 or tlan0:')
+
 headers = {
     'accept': '*/*',
 }
@@ -110,8 +113,10 @@ with open('deployment_ips.csv', 'r') as file:
                         }
                     }
 }
-        new_json_data['modeIfs'][0]['applianceIPs'].append(new_ip)
-
+# New Portion to find the specified interface in list        
+        for interface in new_json_data['modeIfs']:
+            if interface['ifName'] == lan_interface:
+                interface['applianceIPs'].append(new_ip)
 
 # Pushes deployment config to appliance which includes all new values from CSV
 print('Configuring Deployment config.')
